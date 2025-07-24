@@ -1,0 +1,4094 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নলডাঙ্গা আইডিয়াল স্কুল</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8fafc;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 800;
+      color: #1e40af;
+    }
+
+    .logo i {
+      font-size: 32px;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+    }
+
+    /* Page Content */
+    .page {
+      display: none;
+      min-height: calc(100vh - 200px);
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Common Hero Section */
+    .page-hero {
+      padding: 6rem 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Modern Hero Section for Home */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: white;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      color: white;
+      padding: 16px 32px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 16px 32px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px);
+    }
+
+    /* Statistics Section */
+    .stats-section {
+      padding: 4rem 0;
+      background: white;
+      margin-top: -2rem;
+      position: relative;
+      z-index: 3;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1e40af;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc, #ffffff);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .feature-item i {
+      font-size: 1.5rem;
+      color: #3b82f6;
+    }
+
+    .feature-item span {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .about-image i {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .about-image h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Services Grid */
+    .services-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #f1f5f9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .service-card i {
+      font-size: 3rem;
+      color: #3b82f6;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 4rem;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .author-info h4 {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .author-info p {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* News & Events */
+    .news-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    .news-main {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    }
+
+    .news-main h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .news-main p {
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .news-date {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .events-list {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 16px;
+    }
+
+    .events-list h3 {
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .event-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .event-date {
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .event-date .day {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .event-date .month {
+      font-size: 0.8rem;
+    }
+
+    .event-info h4 {
+      color: #1e293b;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .event-info p {
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      color: white;
+      text-align: center;
+    }
+
+    .quick-actions h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .action-btn {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .action-btn:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .action-btn i {
+      font-size: 2rem;
+    }
+
+    /* Gallery Preview */
+    .gallery-section {
+      padding: 5rem 0;
+      background: #f8fafc;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 3rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    /* Admission Page Styles */
+    .admission-hero {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+    }
+
+    .admission-process {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 16px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 1rem;
+    }
+
+    .step-card h3 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .step-card p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .admission-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .info-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-left: 4px solid #3b82f6;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .info-card h3 {
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.3rem;
+    }
+
+    .info-card i {
+      color: #3b82f6;
+      font-size: 1.5rem;
+    }
+
+    .info-card p {
+      color: #64748b;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .info-card strong {
+      color: #1e293b;
+    }
+
+    .admission-cta {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      text-align: center;
+    }
+
+    .admission-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .admission-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .apply-btn {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 16px 32px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .apply-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Teachers and Staff Page Styles */
+    .teachers-staff-hero {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+    }
+
+    .leadership-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .leader-card {
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .leader-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+
+    .leader-image {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .leader-card h3 {
+      color: #1e293b;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .leader-card .position {
+      color: #7c3aed;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .leader-card .qualification {
+      color: #64748b;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .leader-card .experience {
+      background: rgba(124, 58, 237, 0.1);
+      color: #7c3aed;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .departments-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    }
+
+    .departments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .department-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border-top: 4px solid #7c3aed;
+    }
+
+    .department-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .department-card i {
+      font-size: 2.5rem;
+      color: #7c3aed;
+      margin-bottom: 1rem;
+    }
+
+    .department-card h3 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .department-card .head {
+      color: #7c3aed;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .department-card .subjects {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .teachers-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .teacher-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .teacher-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+    }
+
+    .teacher-id {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .teacher-info {
+      padding: 1.5rem;
+    }
+
+    .teacher-info h3 {
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .teacher-info .subject {
+      color: #7c3aed;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .teacher-info .qualification {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .teacher-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .profile-btn {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .profile-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+    }
+
+    .qr-btn {
+      background: rgba(124, 58, 237, 0.1);
+      color: #7c3aed;
+      border: 2px solid #7c3aed;
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-btn:hover {
+      background: #7c3aed;
+      color: white;
+    }
+
+    /* Teacher Profile Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 0;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: white;
+      padding: 2rem;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+
+    .modal-avatar {
+      width: 120px;
+      height: 120px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 1rem;
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .profile-section {
+      margin-bottom: 2rem;
+    }
+
+    .profile-section h3 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.2rem;
+    }
+
+    .profile-section i {
+      color: #7c3aed;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 12px;
+      border-left: 4px solid #7c3aed;
+    }
+
+    .info-item strong {
+      color: #1e293b;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item span {
+      color: #64748b;
+    }
+
+    .qr-section {
+      text-align: center;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 2rem;
+    }
+
+    .qr-code {
+      width: 150px;
+      height: 150px;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 4rem;
+      color: #7c3aed;
+    }
+
+    .qr-info {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .share-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+
+    .staff-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .staff-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .staff-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .staff-card i {
+      font-size: 2.5rem;
+      color: #7c3aed;
+      margin-bottom: 1rem;
+    }
+
+    .staff-card h3 {
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .staff-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Contact Page Styles */
+    .contact-hero {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .contact-methods {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .contact-methods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .contact-method {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .contact-method i {
+      font-size: 3rem;
+      color: #10b981;
+      margin-bottom: 1rem;
+    }
+
+    .contact-method h3 {
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .contact-method p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .contact-form-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    }
+
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      color: #1e293b;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: #f9fafb;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #10b981;
+      background: white;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+
+    .contact-info {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h2 {
+      color: #1e293b;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: #e0f2fe;
+      transform: translateX(5px);
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #10b981;
+      margin-top: 0.2rem;
+    }
+
+    .contact-item-content h4 {
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item-content p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .faq-section {
+      padding: 5rem 0;
+      background: white;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 16px;
+      border-left: 4px solid #10b981;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      background: #e0f2fe;
+      transform: translateY(-2px);
+    }
+
+    .faq-item h3 {
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .faq-item p {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e293b;
+      color: white;
+      padding: 3rem 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #3b82f6;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #cbd5e1;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+      color: #3b82f6;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #334155;
+      padding-top: 2rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .news-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .contact-form-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav-menu {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-menu a {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 4rem 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .page-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .about-section {
+        padding: 3rem 0;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+      }
+
+      .about-features {
+        grid-template-columns: 1fr;
+      }
+
+      .services-section {
+        padding: 3rem 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 2rem;
+      }
+
+      .testimonials-section {
+        padding: 3rem 0;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-section {
+        padding: 3rem 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .admission-info {
+        grid-template-columns: 1fr;
+      }
+
+      .departments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .teachers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .staff-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-methods-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+      }
+
+      .service-card i {
+        font-size: 2.5rem;
+      }
+
+      .testimonial-card {
+        padding: 1.5rem;
+      }
+
+      .news-main {
+        padding: 2rem;
+      }
+
+      .events-list {
+        padding: 1.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .action-btn {
+        padding: 1rem;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .teachers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .staff-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-methods-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .contact-info {
+        padding: 2rem;
+      }
+
+      .admin-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .form-row-admin {
+        grid-template-columns: 1fr !important;
+      }
+
+      .modal-content {
+        width: 95% !important;
+        margin: 2% auto !important;
+      }
+
+      .modal-header {
+        padding: 1.5rem !important;
+      }
+
+      .modal-body {
+        padding: 1.5rem !important;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Additional responsive styles for admin panel */
+    @media (max-width: 768px) {
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row-admin {
+        grid-template-columns: 1fr;
+      }
+
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .departments-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .teachers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .contact-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admission-info {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="ri-graduation-cap-line"></i>
+          নলডাঙ্গা আইডিয়াল স্কুল
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#" onclick="showPage('home')" class="nav-link active">হোম</a></li>
+            <li><a href="#" onclick="showPage('admission')" class="nav-link">এডমিশন</a></li>
+            <li><a href="#" onclick="showPage('teachers-staff')" class="nav-link">শিক্ষক ও কর্মচারীবৃন্দ</a></li>
+            <li><a href="#" onclick="showPage('contact')" class="nav-link">কন্টাক্ট</a></li>
+            <li><a href="#" onclick="showPage('login')" class="nav-link">লগইন</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>নলডাঙ্গা আইডিয়াল স্কুল</h1>
+            <p>আধুনিক শিক্ষা ব্যবস্থার মাধ্যমে ভবিষ্যতের নেতৃত্ব তৈরি করি। আমাদের সাথে যুক্ত হয়ে আপনার সন্তানের উজ্জ্বল ভবিষ্যৎ গড়ুন।</p>
+            <div class="hero-buttons">
+              <a href="#" class="btn-primary" onclick="showPage('admission')">
+                <i class="ri-edit-line"></i>
+                ভর্তি হন
+              </a>
+              <a href="#" class="btn-secondary" onclick="showPage('contact')">
+                <i class="ri-phone-line"></i>
+                যোগাযোগ করুন
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="stats-section">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">১২০০+</div>
+              <div class="stat-label">শিক্ষার্থী</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">৫০+</div>
+              <div class="stat-label">শিক্ষক</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">৯৮%</div>
+              <div class="stat-label">সাফল্যের হার</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">১৫+</div>
+              <div class="stat-label">বছরের অভিজ্ঞতা</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <div class="container">
+          <div class="about-content">
+            <div class="about-text">
+              <h2>আমাদের স্কুল সম্পর্কে</h2>
+              <p>নলডাঙ্গা আইডিয়াল স্কুল ২০০৯ সালে প্রতিষ্ঠিত একটি আধুনিক শিক্ষা প্রতিষ্ঠান। আমাদের লক্ষ্য হলো প্রতিটি শিক্ষার্থীর মধ্যে নৈতিক মূল্যবোধ, সৃজনশীলতা এবং জ্ঞানের আলো জ্বালিয়ে দেওয়া।</p>
+              
+              <div class="about-features">
+                <div class="feature-item">
+                  <i class="ri-award-line"></i>
+                  <span>উচ্চ মানের শিক্ষা</span>
+                </div>
+                <div class="feature-item">
+                  <i class="ri-team-line"></i>
+                  <span>অভিজ্ঞ শিক্ষকমণ্ডলী</span>
+                </div>
+                <div class="feature-item">
+                  <i class="ri-lightbulb-line"></i>
+                  <span>আধুনিক পদ্ধতি</span>
+                </div>
+                <div class="feature-item">
+                  <i class="ri-heart-line"></i>
+                  <span>নৈতিক শিক্ষা</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="about-image">
+              <i class="ri-school-line"></i>
+              <h3>আমাদের লক্ষ্য</h3>
+              <p>প্রতিটি শিক্ষার্থীকে একজন আদর্শ নাগরিক হিসেবে গড়ে তোলা</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="services-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>আমাদের সুবিধাসমূহ</h2>
+            <p>আধুনিক শিক্ষা ব্যবস্থা এবং উন্নত সুবিধাদি দিয়ে সাজানো আমাদের স্কুল</p>
+          </div>
+          
+          <div class="services-grid">
+            <div class="service-card">
+              <i class="ri-computer-line"></i>
+              <h3>ডিজিটাল ক্লাসরুম</h3>
+              <p>স্মার্ট বোর্ড এবং প্রজেক্টর সহ আধুনিক ক্লাসরুম যেখানে ইন্টারেক্টিভ শিক্ষা প্রদান করা হয়।</p>
+            </div>
+            
+            <div class="service-card">
+              <i class="ri-flask-line"></i>
+              <h3>বিজ্ঞান গবেষণাগার</h3>
+              <p>পদার্থ, রসায়ন ও জীববিজ্ঞানের জন্য সুসজ্জিত ল্যাব যেখানে হাতে-কলমে শিক্ষা দেওয়া হয়।</p>
+            </div>
+            
+            <div class="service-card">
+              <i class="ri-book-2-line"></i>
+              <h3>ডিজিটাল লাইব্রেরি</h3>
+              <p>হাজারো বই এবং অনলাইন রিসোর্স সহ আধুনিক গ্রন্থাগার যা শিক্ষার্থীদের জ্ঞান বৃদ্ধিতে সহায়ক।</p>
+            </div>
+            
+            <div class="service-card">
+              <i class="ri-football-line"></i>
+              <h3>খেলার মাঠ</h3>
+              <p>ফুটবল, ক্রিকেট এবং অন্যান্য খেলার জন্য বিশাল মাঠ যেখানে শারীরিক শিক্ষা প্রদান করা হয়।</p>
+            </div>
+            
+            <div class="service-card">
+              <i class="ri-bus-line"></i>
+              <h3>পরিবহন সেবা</h3>
+              <p>নিরাপদ এবং আরামদায়ক স্কুল বাস সেবা যা শিক্ষার্থীদের নিরাপদে স্কুলে আনা-নেওয়া করে।</p>
+            </div>
+            
+            <div class="service-card">
+              <i class="ri-shield-check-line"></i>
+              <h3>নিরাপত্তা ব্যবস্থা</h3>
+              <p>২৪/৭ নিরাপত্তা এবং CCTV নিরীক্ষণ যা শিক্ষার্থীদের সর্বোচ্চ নিরাপত্তা নিশ্চিত করে।</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>অভিভাবক ও শিক্ষার্থীদের মতামত</h2>
+            <p>আমাদের স্কুল সম্পর্কে কী বলছেন তারা</p>
+          </div>
+          
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-text">আমার সন্তান এই স্কুলে পড়ে অনেক উন্নতি করেছে। শিক্ষকরা খুবই যত্নশীল এবং শিক্ষার মান অসাধারণ।</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">রহ</div>
+                <div class="author-info">
+                  <h4>রহিমা খাতুন</h4>
+                  <p>অভিভাবক, ৮ম শ্রেণি</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">এই স্কুলের পরিবেশ খুবই ভালো। আমি এখানে অনেক কিছু শিখেছি এবং আমার বন্ধুরাও খুব ভালো।</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">তা</div>
+                <div class="author-info">
+                  <h4>তানিয়া আক্তার</h4>
+                  <p>শিক্ষার্থী, ৯ম শ্রেণি</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card">
+              <p class="testimonial-text">স্কুলের আধুনিক সুবিধা এবং শিক্ষকদের আন্তরিকতা দেখে আমি মুগ্ধ। আমার সন্তানের ভবিষ্যৎ এখানে নিরাপদ।</p>
+              <div class="testimonial-author">
+                <div class="author-avatar">করি</div>
+                <div class="author-info">
+                  <h4>করিম উদ্দিন</h4>
+                  <p>অভিভাবক, ৬ষ্ঠ শ্রেণি</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- News & Events Section -->
+      <section class="news-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>সাম্প্রতিক খবর ও আসন্ন অনুষ্ঠান</h2>
+          </div>
+          
+          <div class="news-grid">
+            <div class="news-main">
+              <h3>বার্ষিক ক্রীড়া প্রতিযোগিতা ২০২৪</h3>
+              <p>আগামী মাসে অনুষ্ঠিত হতে যাচ্ছে আমাদের বার্ষিক ক্রীড়া প্রতিযোগিতা। সকল শিক্ষার্থী এবং অভিভাবকদের উপস্থিতি কামনা করা হচ্ছে।</p>
+              <span class="news-date">২৫ ডিসেম্বর, ২০২৪</span>
+            </div>
+            
+            <div class="events-list">
+              <h3>আসন্ন অনুষ্ঠানসমূহ</h3>
+              
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="day">১৬</div>
+                  <div class="month">ডিসে</div>
+                </div>
+                <div class="event-info">
+                  <h4>বিজয় দিবস উদযাপন</h4>
+                  <p>মহান বিজয় দিবস উপলক্ষে বিশেষ অনুষ্ঠান</p>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="day">২০</div>
+                  <div class="month">ডিসে</div>
+                </div>
+                <div class="event-info">
+                  <h4>অভিভাবক সভা</h4>
+                  <p>সকল শ্রেণির অভিভাবক সভা</p>
+                </div>
+              </div>
+              
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="day">০১</div>
+                  <div class="month">জানু</div>
+                </div>
+                <div class="event-info">
+                  <h4>বার্ষিক পরীক্ষা</h4>
+                  <p>২০২৪ সালের বার্ষিক পরীক্ষা শুরু</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions">
+        <div class="container">
+          <h2>দ্রুত লিংক</h2>
+          <div class="actions-grid">
+            <a href="#" class="action-btn" onclick="showPage('admission')">
+              <i class="ri-edit-line"></i>
+              <span>ভর্তি আবেদন</span>
+            </a>
+            <a href="#" class="action-btn" onclick="showPage('teachers-staff')">
+              <i class="ri-team-line"></i>
+              <span>শিক্ষকমণ্ডলী</span>
+            </a>
+            <a href="#" class="action-btn" onclick="showPage('contact')">
+              <i class="ri-phone-line"></i>
+              <span>যোগাযোগ</span>
+            </a>
+            <a href="#" class="action-btn">
+              <i class="ri-download-line"></i>
+              <span>ফলাফল</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Preview -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>আমাদের স্কুলের ছবি</h2>
+            <p>স্কুলের বিভিন্ন কার্যক্রম ও সুবিধাদির ছবি</p>
+          </div>
+          
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <i class="ri-image-line"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="ri-camera-line"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="ri-gallery-line"></i>
+            </div>
+            <div class="gallery-item">
+              <i class="ri-landscape-line"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Admission Page -->
+    <div id="admission" class="page">
+      <!-- Hero Section -->
+      <section class="page-hero admission-hero">
+        <div class="container">
+          <div class="page-hero-content">
+            <h1>ভর্তি তথ্য ২০২৪</h1>
+            <p>নলডাঙ্গা আইডিয়াল স্কুলে আপনার সন্তানের উজ্জ্বল ভবিষ্যৎ গড়ুন। আমাদের মানসম্পন্ন শিক্ষা ব্যবস্থা এবং আধুনিক সুবিধাদি আপনার সন্তানের সর্বাঙ্গীণ বিকাশে সহায়ক।</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admission Process -->
+      <section class="admission-process">
+        <div class="container">
+          <div class="section-header">
+            <h2>ভর্তি প্রক্রিয়া</h2>
+            <p>সহজ ৪ ধাপে সম্পন্ন করুন আপনার সন্তানের ভর্তি প্রক্রিয়া</p>
+          </div>
+
+          <div class="process-steps">
+            <div class="step-card">
+              <div class="step-number">১</div>
+              <h3>আবেদন জমা</h3>
+              <p>নির্ধারিত ফর্ম পূরণ করে প্রয়োজনীয় কাগজপত্র সহ আবেদন জমা দিন।</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">২</div>
+              <h3>ভর্তি পরীক্ষা</h3>
+              <p>নির্ধারিত তারিখে শিক্ষার্থীর ভর্তি পরীক্ষায় অংশগ্রহণ করুন।</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">৩</div>
+              <h3>ফলাফল প্রকাশ</h3>
+              <p>পরীক্ষার ফলাফল প্রকাশের পর নির্বাচিত শিক্ষার্থীদের তালিকা দেখুন।</p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">৪</div>
+              <h3>ভর্তি সম্পন্ন</h3>
+              <p>ফি প্রদান করে ভর্তি সম্পন্ন করুন এবং ক্লাস শুরু করুন।</p>
+            </div>
+          </div>
+
+          <div class="admission-info">
+            <div class="info-card">
+              <h3><i class="ri-calendar-line"></i> ভর্তির সময়সূচী</h3>
+              <p><strong>আবেদনের সময়:</strong> ১ জানুয়ারি - ৩১ মার্চ</p>
+              <p><strong>পরীক্ষার তারিখ:</strong> ১৫ এপ্রিল</p>
+              <p><strong>ফলাফল প্রকাশ:</strong> ৩০ এপ্রিল</p>
+              <p><strong>ভর্তি সম্পন্ন:</strong> ১৫ মে</p>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="ri-money-dollar-circle-line"></i> ভর্তি ফি</h3>
+              <p><strong>প্লে-গ্রুপ:</strong> ৫,০০০ টাকা</p>
+              <p><strong>নার্সারি-২য় শ্রেণি:</strong> ৮,০০০ টাকা</p>
+              <p><strong>৩য়-৫ম শ্রেণি:</strong> ১০,০০০ টাকা</p>
+              <p><strong>৬ষ্ঠ-১০ম শ্রেণি:</strong> ১৫,০০০ টাকা</p>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="ri-file-text-line"></i> প্রয়োজনীয় কাগজপত্র</h3>
+              <p>• জন্ম নিবন্ধন সনদের ফটোকপি</p>
+              <p>• পূর্ববর্তী স্কুলের ছাড়পত্র</p>
+              <p>• শিক্ষার্থী ও অভিভাবকের ছবি</p>
+              <p>• অভিভাবকের জাতীয় পরিচয়পত্র</p>
+            </div>
+
+            <div class="info-card">
+              <h3><i class="ri-book-open-line"></i> ভর্তি পরীক্ষার বিষয়</h3>
+              <p><strong>১ম-৩য় শ্রেণি:</strong> বাংলা, ইংরেজি, গণিত</p>
+              <p><strong>৪র্থ-৫ম শ্রেণি:</strong> বাংলা, ইংরেজি, গণিত, সাধারণ জ্ঞান</p>
+              <p><strong>৬ষ্ঠ-৮ম শ্রেণি:</strong> বাংলা, ইংরেজি, গণিত, বিজ্ঞান</p>
+              <p><strong>৯ম-১০ম শ্রেণি:</strong> সকল বিষয়ে পরীক্ষা</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="admission-cta">
+        <div class="container">
+          <h2>আজই আবেদন করুন</h2>
+          <p>আপনার সন্তানের উজ্জ্বল ভবিষ্যতের জন্য আজই আবেদন করুন</p>
+          <a href="#" class="apply-btn" onclick="applyNow()">
+            <i class="ri-edit-line"></i>
+            এখনই আবেদন করুন
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Teachers and Staff Page -->
+    <div id="teachers-staff" class="page">
+      <!-- Hero Section -->
+      <section class="page-hero teachers-staff-hero">
+        <div class="container">
+          <div class="page-hero-content">
+            <h1>আমাদের শিক্ষক ও কর্মচারীবৃন্দ</h1>
+            <p>আমাদের অভিজ্ঞ ও দক্ষ শিক্ষকমণ্ডলী যারা শিক্ষার্থীদের সর্বোচ্চ মানের শিক্ষা প্রদান করে থাকেন।</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Section -->
+      <section class="leadership-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>নেতৃত্ব পরিষদ</h2>
+            <p>আমাদের স্কুলের নেতৃত্বে রয়েছেন অভিজ্ঞ ও দক্ষ শিক্ষাবিদগণ</p>
+          </div>
+
+          <div class="leadership-grid">
+            <div class="leader-card">
+              <div class="leader-image">
+                <i class="ri-user-star-line"></i>
+              </div>
+              <h3>মোঃ আব্দুল করিম</h3>
+              <p class="position">প্রধান শিক্ষক</p>
+              <p class="qualification">এম.এ (বাংলা), বি.এড<br>ঢাকা বিশ্ববিদ্যালয়</p>
+              <span class="experience">২০ বছরের অভিজ্ঞতা</span>
+            </div>
+
+            <div class="leader-card">
+              <div class="leader-image">
+                <i class="ri-user-heart-line"></i>
+              </div>
+              <h3>মিসেস ফাতেমা খাতুন</h3>
+              <p class="position">সহকারী প্রধান শিক্ষক</p>
+              <p class="qualification">এম.এ (ইংরেজি), বি.এড<br>রাজশাহী বিশ্ববিদ্যালয়</p>
+              <span class="experience">১৮ বছরের অভিজ্ঞতা</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Departments Section -->
+      <section class="departments-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>বিভাগীয় প্রধানগণ</h2>
+            <p>প্রতিটি বিভাগে রয়েছেন অভিজ্ঞ ও দক্ষ বিভাগীয় প্রধান</p>
+          </div>
+
+          <div class="departments-grid">
+            <div class="department-card">
+              <i class="ri-calculator-line"></i>
+              <h3>গণিত বিভাগ</h3>
+              <p class="head">বিভাগীয় প্রধান: মোঃ রহিম উদ্দিন</p>
+              <p class="subjects">গণিত, উচ্চতর গণিত, পরিসংখ্যান</p>
+            </div>
+
+            <div class="department-card">
+              <i class="ri-flask-line"></i>
+              <h3>বিজ্ঞান বিভাগ</h3>
+              <p class="head">বিভাগীয় প্রধান: মিসেস সালমা বেগম</p>
+              <p class="subjects">পদার্থবিজ্ঞান, রসায়ন, জীববিজ্ঞান</p>
+            </div>
+
+            <div class="department-card">
+              <i class="ri-book-open-line"></i>
+              <h3>ভাষা বিভাগ</h3>
+              <p class="head">বিভাগীয় প্রধান: মিসেস রোকেয়া খাতুন</p>
+              <p class="subjects">বাংলা, ইংরেজি, আরবি</p>
+            </div>
+
+            <div class="department-card">
+              <i class="ri-global-line"></i>
+              <h3>সামাজিক বিজ্ঞান বিভাগ</h3>
+              <p class="head">বিভাগীয় প্রধান: মোঃ নাসির উদ্দিন</p>
+              <p class="subjects">ইতিহাস, ভূগোল, পৌরনীতি</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teachers Section -->
+      <section class="teachers-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>আমাদের শিক্ষকমণ্ডলী</h2>
+            <p>দক্ষ ও অভিজ্ঞ শিক্ষকদের তত্ত্বাবধানে পাঠদান</p>
+          </div>
+
+          <div class="teachers-grid">
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-001</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মোঃ কামাল হোসেন</h3>
+                <p class="subject">ইংরেজি শিক্ষক</p>
+                <p class="qualification">এম.এ (ইংরেজি), বি.এড<br>১২ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-001')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-001')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-002</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মিসেস নাসরিন আক্তার</h3>
+                <p class="subject">কম্পিউটার শিক্ষক</p>
+                <p class="qualification">বি.এস.সি (কম্পিউটার সায়েন্স), বি.এড<br>৮ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-002')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-002')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-003</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মোঃ আলী হাসান</h3>
+                <p class="subject">শারীরিক শিক্ষা শিক্ষক</p>
+                <p class="qualification">বি.পি.এড, ডিপ্লোমা ইন স্পোর্টস<br>৬ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-003')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-003')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-004</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মিসেস শাহনাজ পারভীন</h3>
+                <p class="subject">গার্হস্থ্য বিজ্ঞান শিক্ষক</p>
+                <p class="qualification">বি.এস.সি (গার্হস্থ্য অর্থনীতি), বি.এড<br>১০ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-004')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-004')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-005</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মোঃ জাহিদ হাসান</h3>
+                <p class="subject">ইসলামিক স্টাডিজ শিক্ষক</p>
+                <p class="qualification">এম.এ (ইসলামিক স্টাডিজ), বি.এড<br>১৪ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-005')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-005')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card">
+              <div class="teacher-image">
+                <div class="teacher-id">T-006</div>
+                <i class="ri-user-line"></i>
+              </div>
+              <div class="teacher-info">
+                <h3>মিসেস রুমা খাতুন</h3>
+                <p class="subject">শিল্পকলা শিক্ষক</p>
+                <p class="qualification">বি.এফ.এ (চারুকলা), বি.এড<br>৭ বছরের অভিজ্ঞতা</p>
+                <div class="teacher-actions">
+                  <button class="profile-btn" onclick="showTeacherProfile('T-006')">
+                    <i class="ri-user-line"></i>
+                    প্রোফাইল দেখুন
+                  </button>
+                  <button class="qr-btn" onclick="generateTeacherQR('T-006')" title="QR কোড">
+                    <i class="ri-qr-code-line"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Staff Section -->
+      <section class="staff-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>সহায়ক কর্মীবৃন্দ</h2>
+            <p>আমাদের দক্ষ সহায়ক কর্মীরা যারা স্কুল পরিচালনায় গুরুত্বপূর্ণ ভূমিকা পালন করেন</p>
+          </div>
+
+          <div class="staff-grid">
+            <div class="staff-card">
+              <i class="ri-file-user-line"></i>
+              <h3>অফিস সহকারী</h3>
+              <p>স্কুলের প্রশাসনিক কাজকর্ম ও রেকর্ড সংরক্ষণে দায়িত্বরত</p>
+            </div>
+
+            <div class="staff-card">
+              <i class="ri-book-2-line"></i>
+              <h3>গ্রন্থাগারিক</h3>
+              <p>লাইব্রেরি পরিচালনা ও বই বিতরণে দায়িত্বরত</p>
+            </div>
+
+            <div class="staff-card">
+              <i class="ri-computer-line"></i>
+              <h3>ল্যাব সহকারী</h3>
+              <p>বিজ্ঞান ও কম্পিউটার ল্যাব পরিচালনায় সহায়তা প্রদান</p>
+            </div>
+
+            <div class="staff-card">
+              <i class="ri-shield-user-line"></i>
+              <h3>নিরাপত্তা প্রহরী</h3>
+              <p>স্কুলের নিরাপত্তা ও শৃঙ্খলা রক্ষায় দায়িত্বরত</p>
+            </div>
+
+            <div class="staff-card">
+              <i class="ri-tools-line"></i>
+              <h3>রক্ষণাবেক্ষণ কর্মী</h3>
+              <p>স্কুলের পরিচ্ছন্নতা ও রক্ষণাবেক্ষণে দায়িত্বরত</p>
+            </div>
+
+            <div class="staff-card">
+              <i class="ri-car-line"></i>
+              <h3>পরিবহন কর্মী</h3>
+              <p>স্কুল বাস পরিচালনা ও শিক্ষার্থী পরিবহনে দায়িত্বরত</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login" class="page">
+      <!-- Hero Section -->
+      <section class="page-hero" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">
+        <div class="container">
+          <div class="page-hero-content">
+            <h1>অ্যাডমিন লগইন</h1>
+            <p>অ্যাডমিন প্যানেল অ্যাক্সেস করতে আপনার লগইন তথ্য দিয়ে প্রবেশ করুন</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Login Form Section -->
+      <section style="padding: 5rem 0; background: white;">
+        <div class="container">
+          <div style="max-width: 500px; margin: 0 auto;">
+            <!-- Login Form -->
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+              <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 2rem;">
+                  <i class="ri-shield-user-line"></i>
+                </div>
+                <h2 style="color: #1e293b; margin-bottom: 0.5rem;">অ্যাডমিন প্যানেল</h2>
+                <p style="color: #64748b;">নিরাপদ লগইন সিস্টেম</p>
+              </div>
+              
+              <form id="adminLoginForm" style="display: grid; gap: 1.5rem;">
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 8px;">
+                    <i class="ri-user-line" style="color: #1e40af;"></i>
+                    ইউজারনেম
+                  </label>
+                  <input type="text" id="adminUsername" placeholder="আপনার ইউজারনেম লিখুন" style="width: 100%; padding: 14px 16px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 1rem; transition: border-color 0.3s ease;" required>
+                </div>
+                
+                <div>
+                  <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151; display: flex; align-items: center; gap: 8px;">
+                    <i class="ri-lock-line" style="color: #1e40af;"></i>
+                    পাসওয়ার্ড
+                  </label>
+                  <div style="position: relative;">
+                    <input type="password" id="adminPassword" placeholder="আপনার পাসওয়ার্ড লিখুন" style="width: 100%; padding: 14px 16px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 1rem; transition: border-color 0.3s ease; padding-right: 50px;" required>
+                    <button type="button" onclick="togglePassword('adminPassword')" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; cursor: pointer; font-size: 1.2rem;">
+                      <i class="ri-eye-line"></i>
+                    </button>
+                  </div>
+                </div>
+                
+                <div id="loginError" style="display: none; background: #fef2f2; color: #dc2626; padding: 12px; border-radius: 8px; border-left: 4px solid #dc2626; font-size: 0.9rem;">
+                  <i class="ri-error-warning-line"></i>
+                  ভুল ইউজারনেম বা পাসওয়ার্ড!
+                </div>
+                
+                <button type="submit" style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 16px; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <i class="ri-login-circle-line"></i>
+                  লগইন করুন
+                </button>
+              </form>
+              
+              <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                  <i class="ri-information-line" style="color: #d97706; font-size: 1.2rem;"></i>
+                  <strong style="color: #92400e;">ডেমো লগইন তথ্য:</strong>
+                </div>
+                <div style="font-size: 0.9rem; color: #92400e; line-height: 1.5;">
+                  <strong>ইউজারনেম:</strong> headmaster<br>
+                  <strong>পাসওয়ার্ড:</strong> naldanga2024
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Admin Panel Page -->
+    <div id="admin" class="page">
+      <!-- Admin Header -->
+      <section style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 3rem 0;">
+        <div class="container">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                <i class="ri-dashboard-line"></i>
+              </div>
+              <div>
+                <h1 style="margin-bottom: 0.5rem; font-size: 2.5rem;">অ্যাডমিন ড্যাশবোর্ড</h1>
+                <p style="opacity: 0.9; font-size: 1.1rem;">স্বাগতম, প্রধান শিক্ষক</p>
+              </div>
+            </div>
+            
+            <button onclick="adminLogout()" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
+              <i class="ri-logout-circle-line"></i>
+              লগআউট
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admin Stats -->
+      <section style="padding: 3rem 0; background: white; margin-top: -2rem; position: relative; z-index: 3; border-radius: 20px 20px 0 0;">
+        <div class="container">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);">
+              <i class="ri-team-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+              <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;" id="totalTeachers">৬</div>
+              <div style="font-size: 1rem; opacity: 0.9;">মোট শিক্ষক</div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);">
+              <i class="ri-link" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+              <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;" id="totalProfiles">৬</div>
+              <div style="font-size: 1rem; opacity: 0.9;">প্রোফাইল লিংক</div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);">
+              <i class="ri-qr-code-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+              <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;" id="totalQRCodes">৬</div>
+              <div style="font-size: 1rem; opacity: 0.9;">QR কোড</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <button onclick="showAddTeacherForm()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 1.5rem; border: none; border-radius: 16px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);">
+              <i class="ri-user-add-line" style="font-size: 1.5rem;"></i>
+              <div>
+                <div>নতুন শিক্ষক যোগ করুন</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">নতুন শিক্ষকের তথ্য যোগ করুন</div>
+              </div>
+            </button>
+            
+            <button onclick="showTeacherManagement()" style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 1.5rem; border: none; border-radius: 16px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);">
+              <i class="ri-settings-3-line" style="font-size: 1.5rem;"></i>
+              <div>
+                <div>শিক্ষক ব্যবস্থাপনা</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">প্রোফাইল লিংক ও QR কোড</div>
+              </div>
+            </button>
+            
+            <button onclick="showQRGenerator()" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; padding: 1.5rem; border: none; border-radius: 16px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);">
+              <i class="ri-qr-code-line" style="font-size: 1.5rem;"></i>
+              <div>
+                <div>QR কোড জেনারেটর</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">তাৎক্ষণিক QR কোড তৈরি</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Dynamic Content Area -->
+          <div id="adminContentArea">
+            <div style="text-align: center; padding: 4rem; color: #64748b; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 20px;">
+              <i class="ri-dashboard-3-line" style="font-size: 5rem; margin-bottom: 1.5rem; opacity: 0.5;"></i>
+              <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.5rem;">অ্যাডমিন ড্যাশবোর্ড</h3>
+              <p style="font-size: 1.1rem;">উপরের বাটনগুলো ব্যবহার করে বিভিন্ন কাজ করুন</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+      <!-- Hero Section -->
+      <section class="page-hero contact-hero">
+        <div class="container">
+          <div class="page-hero-content">
+            <h1>যোগাযোগ করুন</h1>
+            <p>আমাদের সাথে যোগাযোগ করুন যেকোনো প্রয়োজনে। আমরা সর্বদা আপনার সেবায় নিয়োজিত।</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Methods -->
+      <section class="contact-methods">
+        <div class="container">
+          <div class="section-header">
+            <h2>যোগাযোগের মাধ্যম</h2>
+            <p>আপনার সুবিধামতো যেকোনো মাধ্যমে আমাদের সাথে যোগাযোগ করুন</p>
+          </div>
+
+          <div class="contact-methods-grid">
+            <div class="contact-method">
+              <i class="ri-phone-line"></i>
+              <h3>ফোন করুন</h3>
+              <p>তাৎক্ষণিক সহায়তার জন্য আমাদের ফোন করুন</p>
+            </div>
+
+            <div class="contact-method">
+              <i class="ri-mail-line"></i>
+              <h3>ইমেইল পাঠান</h3>
+              <p>বিস্তারিত তথ্যের জন্য ইমেইল করুন</p>
+            </div>
+
+            <div class="contact-method">
+              <i class="ri-map-pin-line"></i>
+              <h3>সরাসরি ভিজিট</h3>
+              <p>স্কুলে এসে সরাসরি কথা বলুন</p>
+            </div>
+
+            <div class="contact-method">
+              <i class="ri-chat-3-line"></i>
+              <h3>অনলাইন চ্যাট</h3>
+              <p>দ্রুত উত্তরের জন্য অনলাইন চ্যাট করুন</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form & Info -->
+      <section class="contact-form-section">
+        <div class="container">
+          <div class="contact-form-grid">
+            <div class="contact-form">
+              <h2>আমাদের লিখুন</h2>
+              <form onsubmit="submitForm(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">প্রথম নাম *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">শেষ নাম *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">ইমেইল *</label>
+                    <input type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">ফোন নম্বর</label>
+                    <input type="tel" id="phone" name="phone">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">বিষয়ের ধরন *</label>
+                  <select id="category" name="category" required>
+                    <option value="">নির্বাচন করুন</option>
+                    <option value="admission">ভর্তি সংক্রান্ত</option>
+                    <option value="academic">শিক্ষক ও কর্মচারীবৃন্দক তথ্য</option>
+                    <option value="complaint">অভিযোগ</option>
+                    <option value="suggestion">পরামর্শ</option>
+                    <option value="other">অন্যান্য</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">বিষয় *</label>
+                  <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">বার্তা *</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                  <i class="ri-send-plane-line"></i>
+                  বার্তা পাঠান
+                </button>
+              </form>
+            </div>
+
+            <div class="contact-info">
+              <h2>যোগাযোগের তথ্য</h2>
+              
+              <div class="contact-item">
+                <i class="ri-map-pin-line"></i>
+                <div class="contact-item-content">
+                  <h4>ঠিকানা</h4>
+                  <p>নলডাঙ্গা, নাটোর, রাজশাহী<br>বাংলাদেশ - ৬৪০০</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-phone-line"></i>
+                <div class="contact-item-content">
+                  <h4>ফোন</h4>
+                  <p>+৮৮০ ১৭১২-৩৪৫৬৭৮<br>+৮৮০ ১৯১৫-৯৮৭৬৫ৄ</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-mail-line"></i>
+                <div class="contact-item-content">
+                  <h4>ইমেইল</h4>
+                  <p>info@naldangaideal.edu.bd<br>admission@naldangaideal.edu.bd</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-time-line"></i>
+                <div class="contact-item-content">
+                  <h4>অফিস সময়</h4>
+                  <p>সকাল ৮:০০ - দুপুর ২:০০<br>রবিবার - বৃহস্পতিবার</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-global-line"></i>
+                <div class="contact-item-content">
+                  <h4>ওয়েবসাইট</h4>
+                  <p>www.naldangaideal.edu.bd</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>সাধারণ প্রশ্নাবলী</h2>
+            <p>আমাদের কাছে প্রায়ই জিজ্ঞাসিত প্রশ্নগুলোর উত্তর</p>
+          </div>
+
+          <div class="faq-grid">
+            <div class="faq-item">
+              <h3>ভর্তির জন্য কী কী কাগজপত্র লাগবে?</h3>
+              <p>জন্ম নিবন্ধন সনদ, পূর্ববর্তী স্কুলের ছাড়পত্র, শিক্ষার্থী ও অভিভাবকের ছবি এবং অভিভাবকের জাতীয় পরিচয়পত্র প্রয়োজন।</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>স্কুলে কি পরিবহন সুবিধা আছে?</h3>
+              <p>হ্যাঁ, আমাদের নিরাপদ ও আরামদায়ক স্কুল বাস সেবা রয়েছে যা বিভিন্ন এলাকা থেকে শিক্ষার্থীদের আনা-নেওয়া করে।</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>ক্লাসের সময়সূচী কেমন?</h3>
+              <p>সকাল ৮:০০ টা থেকে দুপুর ২:০০ টা পর্যন্ত নিয়মিত ক্লাস। রবিবার থেকে বৃহস্পতিবার সাপ্তাহিক ছুটি।</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>অভিভাবকদের সাথে যোগাযোগ কেমন?</h3>
+              <p>নিয়মিত অভিভাবক সভা, মাসিক প্রগ্রেস রিপোর্ট এবং প্রয়োজনে ব্যক্তিগত সাক্ষাতের ব্যবস্থা রয়েছে।</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>নলডাঙ্গা আইডিয়াল স্কুল</h3>
+          <p>আধুনিক শিক্ষা ব্যবস্থার মাধ্যমে ভবিষ্যতের নেতৃত্ব তৈরি করি।</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>যোগাযোগ</h3>
+          <p>নলডাঙ্গা, নাটোর, রাজশাহী</p>
+          <p>ফোন: +৮৮০ ১৭১২-৩৪৫৬৭৮</p>
+          <p>ইমেইল: info@naldangaideal.edu.bd</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>দ্রুত লিংক</h3>
+          <a href="#" onclick="showPage('admission')">ভর্তি তথ্য</a><br>
+          <a href="#" onclick="showPage('teachers-staff')">শিক্ষকমণ্ডলী</a><br>
+          <a href="#" onclick="showPage('contact')">যোগাযোগ</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; ২০২৪ নলডাঙ্গা আইডিয়াল স্কুল। সকল অধিকার সংরক্ষিত।</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Teacher Profile Modal -->
+  <div id="teacherModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-avatar">
+          <i class="ri-user-line"></i>
+        </div>
+        <h2 id="modalTeacherName">শিক্ষকের নাম</h2>
+        <p id="modalTeacherSubject">বিষয়</p>
+      </div>
+      
+      <div class="modal-body">
+        <div class="profile-section">
+          <h3><i class="ri-user-3-line"></i> ব্যক্তিগত তথ্য</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>শিক্ষক আইডি:</strong>
+              <span id="modalTeacherId">T-001</span>
+            </div>
+            <div class="info-item">
+              <strong>যোগদানের তারিখ:</strong>
+              <span id="modalJoinDate">০১ জানুয়ারি, ২০১৫</span>
+            </div>
+            <div class="info-item">
+              <strong>ফোন নম্বর:</strong>
+              <span id="modalPhone">+৮৮০ ১৭১২-৩৪৫৬৭৮</span>
+            </div>
+            <div class="info-item">
+              <strong>ইমেইল:</strong>
+              <span id="modalEmail">teacher@naldangaideal.edu.bd</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h3><i class="ri-graduation-cap-line"></i> শিক্ষাগত যোগ্যতা</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>প্রধান বিষয়:</strong>
+              <span id="modalMainSubject">ইংরেজি</span>
+            </div>
+            <div class="info-item">
+              <strong>ডিগ্রি:</strong>
+              <span id="modalDegree">এম.এ (ইংরেজি), বি.এড</span>
+            </div>
+            <div class="info-item">
+              <strong>বিশ্ববিদ্যালয়:</strong>
+              <span id="modalUniversity">ঢাকা বিশ্ববিদ্যালয়</span>
+            </div>
+            <div class="info-item">
+              <strong>অভিজ্ঞতা:</strong>
+              <span id="modalExperience">১২ বছর</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-section">
+          <h3><i class="ri-book-open-line"></i> দায়িত্ব ও কার্যক্রম</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>শ্রেণি শিক্ষক:</strong>
+              <span id="modalClassTeacher">৮ম শ্রেণি 'ক' বিভাগ</span>
+            </div>
+            <div class="info-item">
+              <strong>অতিরিক্ত দায়িত্ব:</strong>
+              <span id="modalExtraRole">ইংরেজি বিভাগীয় প্রধান</span>
+            </div>
+            <div class="info-item">
+              <strong>ক্লাব সদস্য:</strong>
+              <span id="modalClub">ডিবেটিং ক্লাব</span>
+            </div>
+            <div class="info-item">
+              <strong>বিশেষ দক্ষতা:</strong>
+              <span id="modalSkills">ইংরেজি সাহিত্য, বক্তৃতা</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="qr-section">
+          <h3>শিক্ষকের QR কোড</h3>
+          <div class="qr-code">
+            <i class="ri-qr-code-line"></i>
+          </div>
+          <p class="qr-info">এই QR কোডটি স্ক্যান করে শিক্ষকের প্রোফাইল দেখুন</p>
+          <button class="share-btn" onclick="shareProfile()">
+            <i class="ri-share-line"></i>
+            প্রোফাইল শেয়ার করুন
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+      
+      // Update navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    function applyNow() {
+      alert('ভর্তির আবেদনের জন্য অনুগ্রহ করে স্কুলে যোগাযোগ করুন অথবা +৮৮০ ১৭১২-৩৪৫৬৭৮ নম্বরে কল করুন।');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert('আপনার বার্তা সফলভাবে পাঠানো হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।');
+      event.target.reset();
+    }
+
+    // Teacher Profile Data
+    const teacherData = {
+      'T-001': {
+        name: 'মোঃ কামাল হোসেন',
+        subject: 'ইংরেজি শিক্ষক',
+        id: 'T-001',
+        joinDate: '০১ জানুয়ারি, ২০১৫',
+        phone: '+৮৮০ ১৭১২-৩৪৫৬৭৮',
+        email: 'kamal@naldangaideal.edu.bd',
+        mainSubject: 'ইংরেজি',
+        degree: 'এম.এ (ইংরেজি), বি.এড',
+        university: 'ঢাকা বিশ্ববিদ্যালয়',
+        experience: '১২ বছর',
+        classTeacher: '৮ম শ্রেণি ক বিভাগ',
+        extraRole: 'ইংরেজি বিভাগীয় প্রধান',
+        club: 'ডিবেটিং ক্লাব',
+        skills: 'ইংরেজি সাহিত্য, বক্তৃতা'
+      },
+      'T-002': {
+        name: 'মিসেস নাসরিন আক্তার',
+        subject: 'কম্পিউটার শিক্ষক',
+        id: 'T-002',
+        joinDate: '১৫ মার্চ, ২০১৮',
+        phone: '+৮৮০ ১৯১৫-৯৮৭৬৫৪',
+        email: 'nasrin@naldangaideal.edu.bd',
+        mainSubject: 'কম্পিউটার সায়েন্স',
+        degree: 'বি.এস.সি (কম্পিউটার সায়েন্স), বি.এড',
+        university: 'রাজশাহী বিশ্ববিদ্যালয়',
+        experience: '৮ বছর',
+        classTeacher: '৭ম শ্রেণি খ বিভাগ',
+        extraRole: 'আইসিটি বিভাগীয় প্রধান',
+        club: 'কম্পিউটার ক্লাব',
+        skills: 'প্রোগ্রামিং, ওয়েব ডিজাইন'
+      },
+      'T-003': {
+        name: 'মোঃ আলী হাসান',
+        subject: 'শারীরিক শিক্ষা শিক্ষক',
+        id: 'T-003',
+        joinDate: '১০ জুলাই, ২০২০',
+        phone: '+৮৮০ ১৮১৮-১২৩৪৫৬',
+        email: 'ali@naldangaideal.edu.bd',
+        mainSubject: 'শারীরিক শিক্ষা',
+        degree: 'বি.পি.এড, ডিপ্লোমা ইন স্পোর্টস',
+        university: 'বাংলাদেশ ক্রীড়া শিক্ষা প্রতিষ্ঠান',
+        experience: '৬ বছর',
+        classTeacher: '৬ষ্ঠ শ্রেণি গ বিভাগ',
+        extraRole: 'ক্রীড়া সংগঠক',
+        club: 'ক্রীড়া ক্লাব',
+        skills: 'ফুটবল, ক্রিকেট, অ্যাথলেটিক্স'
+      },
+      'T-004': {
+        name: 'মিসেস শাহনাজ পারভীন',
+        subject: 'গার্হস্থ্য বিজ্ঞান শিক্ষক',
+        id: 'T-004',
+        joinDate: '২৫ সেপ্টেম্বর, ২০১৬',
+        phone: '+৮৮০ ১৭৭৭-৮৮৯৯০০',
+        email: 'shahnaz@naldangaideal.edu.bd',
+        mainSubject: 'গার্হস্থ্য বিজ্ঞান',
+        degree: 'বি.এস.সি (গার্হস্থ্য অর্থনীতি), বি.এড',
+        university: 'চট্টগ্রাম বিশ্ববিদ্যালয়',
+        experience: '১০ বছর',
+        classTeacher: '৯ম শ্রেণি ক বিভাগ',
+        extraRole: 'গার্হস্থ্য বিজ্ঞান বিভাগীয় প্রধান',
+        club: 'রান্না ক্লাব',
+        skills: 'পুষ্টিবিদ্যা, খাদ্য প্রস্তুতি'
+      },
+      'T-005': {
+        name: 'মোঃ জাহিদ হাসান',
+        subject: 'ইসলামিক স্টাডিজ শিক্ষক',
+        id: 'T-005',
+        joinDate: '০৫ জানুয়ারি, ২০১২',
+        phone: '+৮৮০ ১৫৫৫-৬৬৭৭৮৮',
+        email: 'zahid@naldangaideal.edu.bd',
+        mainSubject: 'ইসলামিক স্টাডিজ',
+        degree: 'এম.এ (ইসলামিক স্টাডিজ), বি.এড',
+        university: 'ইসলামী বিশ্ববিদ্যালয়',
+        experience: '১৪ বছর',
+        classTeacher: '১০ম শ্রেণি ক বিভাগ',
+        extraRole: 'ধর্মীয় শিক্ষা বিভাগীয় প্রধান',
+        club: 'ইসলামিক সোসাইটি',
+        skills: 'কুরআন তিলাওয়াত, হাদিস'
+      },
+      'T-006': {
+        name: 'মিসেস রুমা খাতুন',
+        subject: 'শিল্পকলা শিক্ষক',
+        id: 'T-006',
+        joinDate: '২০ এপ্রিল, ২০১৯',
+        phone: '+৮৮০ ১৬৬৬-৭৭৮৮৯৯',
+        email: 'ruma@naldangaideal.edu.bd',
+        mainSubject: 'চারুকলা',
+        degree: 'বি.এফ.এ (চারুকলা), বি.এড',
+        university: 'চারুকলা ইনস্টিটিউট',
+        experience: '৭ বছর',
+        classTeacher: '৫ম শ্রেণি খ বিভাগ',
+        extraRole: 'সাংস্কৃতিক কমিটির সদস্য',
+        club: 'আর্ট ক্লাব',
+        skills: 'চিত্রকলা, হস্তশিল্প'
+      }
+    };
+
+    function showTeacherProfile(teacherId) {
+      const teacher = teacherData[teacherId];
+      if (!teacher) return;
+
+      // Update modal content
+      document.getElementById('modalTeacherName').textContent = teacher.name;
+      document.getElementById('modalTeacherSubject').textContent = teacher.subject;
+      document.getElementById('modalTeacherId').textContent = teacher.id;
+      document.getElementById('modalJoinDate').textContent = teacher.joinDate;
+      document.getElementById('modalPhone').textContent = teacher.phone;
+      document.getElementById('modalEmail').textContent = teacher.email;
+      document.getElementById('modalMainSubject').textContent = teacher.mainSubject;
+      document.getElementById('modalDegree').textContent = teacher.degree;
+      document.getElementById('modalUniversity').textContent = teacher.university;
+      document.getElementById('modalExperience').textContent = teacher.experience;
+      document.getElementById('modalClassTeacher').textContent = teacher.classTeacher;
+      document.getElementById('modalExtraRole').textContent = teacher.extraRole;
+      document.getElementById('modalClub').textContent = teacher.club;
+      document.getElementById('modalSkills').textContent = teacher.skills;
+
+      // Show modal
+      document.getElementById('teacherModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showQRCode(teacherId) {
+      showTeacherProfile(teacherId);
+      // Scroll to QR section
+      setTimeout(() => {
+        document.querySelector('.qr-section').scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+
+    function closeModal() {
+      document.getElementById('teacherModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function shareProfile() {
+      const teacherName = document.getElementById('modalTeacherName').textContent;
+      const teacherId = document.getElementById('modalTeacherId').textContent;
+      const profileUrl = `${window.location.origin}${window.location.pathname}?teacher=${teacherId}`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: `${teacherName} - নলডাঙ্গা আইডিয়াল স্কুল`,
+          text: `${teacherName} এর প্রোফাইল দেখুন`,
+          url: profileUrl
+        });
+      } else {
+        // Fallback for browsers that don't support Web Share API
+        navigator.clipboard.writeText(profileUrl).then(() => {
+          alert('প্রোফাইল লিংক কপি করা হয়েছে!');
+        }).catch(() => {
+          alert(`প্রোফাইল লিংক: ${profileUrl}`);
+        });
+      }
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('teacherModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Handle direct teacher profile links
+    function handleDirectTeacherLink() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const teacherId = urlParams.get('teacher');
+      if (teacherId && teacherData[teacherId]) {
+        showPage('teachers-staff');
+        setTimeout(() => {
+          showTeacherProfile(teacherId);
+        }, 500);
+      }
+    }
+
+    // Admin Authentication
+    let isAdminLoggedIn = false;
+    const adminCredentials = {
+      username: 'headmaster',
+      password: 'naldanga2024'
+    };
+
+    function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const button = input.nextElementSibling;
+      const icon = button.querySelector('i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'ri-eye-off-line';
+      } else {
+        input.type = 'password';
+        icon.className = 'ri-eye-line';
+      }
+    }
+
+    function adminLogin(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('adminUsername').value;
+      const password = document.getElementById('adminPassword').value;
+      const errorDiv = document.getElementById('loginError');
+      
+      if (username === adminCredentials.username && password === adminCredentials.password) {
+        isAdminLoggedIn = true;
+        
+        // Store login state in session
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        
+        // Hide error if shown
+        errorDiv.style.display = 'none';
+        
+        // Show admin page
+        showPage('admin');
+        
+        // Update stats
+        updateAdminStats();
+        
+        // Show success message
+        showNotification('সফলভাবে লগইন হয়েছে!', 'success');
+      } else {
+        errorDiv.style.display = 'block';
+        
+        // Clear password field
+        document.getElementById('adminPassword').value = '';
+        
+        // Shake animation for error
+        errorDiv.style.animation = 'shake 0.5s ease-in-out';
+        setTimeout(() => {
+          errorDiv.style.animation = '';
+        }, 500);
+      }
+    }
+
+    function adminLogout() {
+      isAdminLoggedIn = false;
+      sessionStorage.removeItem('adminLoggedIn');
+      
+      // Clear form
+      document.getElementById('adminLoginForm').reset();
+      document.getElementById('loginError').style.display = 'none';
+      
+      // Reset admin content area
+      document.getElementById('adminContentArea').innerHTML = `
+        <div style="text-align: center; padding: 4rem; color: #64748b; background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 20px;">
+          <i class="ri-dashboard-3-line" style="font-size: 5rem; margin-bottom: 1.5rem; opacity: 0.5;"></i>
+          <h3 style="margin-bottom: 1rem; color: #1e293b; font-size: 1.5rem;">অ্যাডমিন ড্যাশবোর্ড</h3>
+          <p style="font-size: 1.1rem;">উপরের বাটনগুলো ব্যবহার করে বিভিন্ন কাজ করুন</p>
+        </div>
+      `;
+      
+      // Go back to login page
+      showPage('login');
+      
+      showNotification('সফলভাবে লগআউট হয়েছে!', 'info');
+    }
+
+    function checkAdminAccess() {
+      const loggedIn = sessionStorage.getItem('adminLoggedIn');
+      if (loggedIn === 'true') {
+        isAdminLoggedIn = true;
+        updateAdminStats();
+        return true;
+      } else {
+        showPage('login');
+        showNotification('প্রথমে লগইন করুন!', 'warning');
+        return false;
+      }
+    }
+
+    function updateAdminStats() {
+      const teacherCount = Object.keys(teacherData).length;
+      document.getElementById('totalTeachers').textContent = teacherCount;
+      document.getElementById('totalProfiles').textContent = teacherCount;
+      document.getElementById('totalQRCodes').textContent = teacherCount;
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      const colors = {
+        success: '#10b981',
+        error: '#ef4444',
+        info: '#3b82f6',
+        warning: '#f59e0b'
+      };
+      
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${colors[type]};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-weight: 600;
+        animation: slideIn 0.3s ease;
+      `;
+      
+      notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <i class="ri-check-line"></i>
+          ${message}
+        </div>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 300);
+      }, 3000);
+    }
+
+    // Admin Panel Functions
+    function showAddTeacherForm() {
+      if (!checkAdminAccess()) return;
+      
+      const contentArea = document.getElementById('adminContentArea');
+      contentArea.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-left: 4px solid #10b981;">
+          <h3 style="color: #1e293b; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; font-size: 1.5rem;">
+            <i class="ri-user-add-line" style="color: #10b981; font-size: 1.8rem;"></i>
+            নতুন শিক্ষক যোগ করুন
+          </h3>
+          
+          <form id="newAddTeacherForm" style="display: grid; gap: 1.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">শিক্ষক আইডি *</label>
+                <input type="text" id="newTeacherId" placeholder="যেমন: T-007" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">শিক্ষকের নাম *</label>
+                <input type="text" id="newTeacherName" placeholder="পূর্ণ নাম লিখুন" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">বিষয় *</label>
+                <input type="text" id="newTeacherSubject" placeholder="যেমন: গণিত শিক্ষক" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">ফোন নম্বর *</label>
+                <input type="text" id="newTeacherPhone" placeholder="+৮৮০ ১৭১২-৩৪৫৬৭৮" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+            </div>
+            
+            <div>
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">ইমেইল *</label>
+              <input type="email" id="newTeacherEmail" placeholder="teacher@naldangaideal.edu.bd" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">ডিগ্রি *</label>
+                <input type="text" id="newTeacherDegree" placeholder="যেমন: এম.এ (গণিত), বি.এড" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">বিশ্ববিদ্যালয় *</label>
+                <input type="text" id="newTeacherUniversity" placeholder="যেমন: ঢাকা বিশ্ববিদ্যালয়" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">অভিজ্ঞতা *</label>
+                <input type="text" id="newTeacherExperience" placeholder="যেমন: ৫ বছর" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">যোগদানের তারিখ *</label>
+                <input type="date" id="newTeacherJoinDate" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" required>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">শ্রেণি শিক্ষক</label>
+                <input type="text" id="newTeacherClass" placeholder="যেমন: ৫ম শ্রেণি ক বিভাগ" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">অতিরিক্ত দায়িত্ব</label>
+                <input type="text" id="newTeacherRole" placeholder="যেমন: বিভাগীয় প্রধান" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;">
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">ক্লাব সদস্যপদ</label>
+                <input type="text" id="newTeacherClub" placeholder="যেমন: বিজ্ঞান ক্লাব" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;">
+              </div>
+              <div>
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #374151;">বিশেষ দক্ষতা</label>
+                <input type="text" id="newTeacherSkills" placeholder="যেমন: গবেষণা, প্রশিক্ষণ" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;">
+              </div>
+            </div>
+            
+            <button type="submit" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.1rem; margin-top: 1rem; transition: all 0.3s ease;">
+              <i class="ri-add-line"></i>
+              শিক্ষক যোগ করুন
+            </button>
+          </form>
+        </div>
+      `;
+      
+      // Add event listener to new form
+      document.getElementById('newAddTeacherForm').addEventListener('submit', addNewTeacherFromPanel);
+    }
+
+    function showTeacherManagement() {
+      if (!checkAdminAccess()) return;
+      
+      const contentArea = document.getElementById('adminContentArea');
+      let teachersList = '';
+      
+      Object.keys(teacherData).forEach(teacherId => {
+        const teacher = teacherData[teacherId];
+        const baseUrl = window.location.origin + window.location.pathname;
+        const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+        
+        teachersList += `
+          <div style="background: white; padding: 2rem; border-radius: 16px; border-left: 4px solid #3b82f6; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.8rem;">
+                  <strong style="color: #1e293b; font-size: 1.2rem;">${teacher.name}</strong>
+                  <span style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">${teacherId}</span>
+                </div>
+                <p style="color: #64748b; margin-bottom: 1rem; font-size: 1rem;">${teacher.subject}</p>
+                <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                  <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 4px;">প্রোফাইল লিংক:</div>
+                  <div style="font-family: monospace; font-size: 0.8rem; color: #1e40af; word-break: break-all;">
+                    ${profileUrl}
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.8rem; flex-direction: column;">
+                <button onclick="copyTeacherLink('${teacherId}')" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 10px 16px; border: none; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600; transition: all 0.3s ease;">
+                  <i class="ri-file-copy-line"></i> কপি করুন
+                </button>
+                <button onclick="generateTeacherQR('${teacherId}')" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; padding: 10px 16px; border: none; border-radius: 8px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-weight: 600; transition: all 0.3s ease;">
+                  <i class="ri-qr-code-line"></i> QR কোড
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      contentArea.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-left: 4px solid #3b82f6;">
+          <h3 style="color: #1e293b; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; font-size: 1.5rem;">
+            <i class="ri-settings-3-line" style="color: #3b82f6; font-size: 1.8rem;"></i>
+            শিক্ষক ব্যবস্থাপনা
+          </h3>
+          
+          <div style="display: grid; gap: 1.5rem;">
+            ${teachersList}
+          </div>
+        </div>
+      `;
+    }
+
+    function showQRGenerator() {
+      if (!checkAdminAccess()) return;
+      
+      const contentArea = document.getElementById('adminContentArea');
+      let teacherOptions = '<option value="">শিক্ষক নির্বাচন করুন</option>';
+      
+      Object.keys(teacherData).forEach(teacherId => {
+        const teacher = teacherData[teacherId];
+        teacherOptions += `<option value="${teacherId}">${teacher.name} (${teacherId})</option>`;
+      });
+      
+      contentArea.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-left: 4px solid #8b5cf6;">
+          <h3 style="color: #1e293b; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; font-size: 1.5rem;">
+            <i class="ri-qr-code-line" style="color: #8b5cf6; font-size: 1.8rem;"></i>
+            QR কোড জেনারেটর
+          </h3>
+          
+          <div style="margin-bottom: 2rem;">
+            <label style="display: block; margin-bottom: 0.8rem; font-weight: 600; color: #374151; font-size: 1.1rem;">শিক্ষক নির্বাচন করুন:</label>
+            <select id="qrTeacherSelect" style="width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; background: white; font-size: 1rem;" onchange="generateQRForSelected()">
+              ${teacherOptions}
+            </select>
+          </div>
+          
+          <div id="qrGeneratedContent" style="display: none;">
+            <div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 2rem; border-radius: 16px; text-align: center; margin-bottom: 1rem;">
+              <div id="selectedTeacherInfo" style="margin-bottom: 1.5rem;"></div>
+              <div id="generatedQRCode" style="margin: 1.5rem 0;"></div>
+              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <button onclick="downloadSelectedQR()" style="background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; transition: all 0.3s ease;">
+                  <i class="ri-download-line"></i> ডাউনলোড
+                </button>
+                <button onclick="printSelectedQR()" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; transition: all 0.3s ease;">
+                  <i class="ri-printer-line"></i> প্রিন্ট
+                </button>
+                <button onclick="shareSelectedProfile()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 12px 20px; border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; transition: all 0.3s ease;">
+                  <i class="ri-share-line"></i> শেয়ার
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function generateQRForSelected() {
+      const teacherId = document.getElementById('qrTeacherSelect').value;
+      const contentDiv = document.getElementById('qrGeneratedContent');
+      
+      if (!teacherId) {
+        contentDiv.style.display = 'none';
+        return;
+      }
+      
+      const teacher = teacherData[teacherId];
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      const qrSize = 200;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(profileUrl)}`;
+      
+      document.getElementById('selectedTeacherInfo').innerHTML = `
+        <h4 style="color: #1e293b; margin-bottom: 0.5rem;">${teacher.name}</h4>
+        <p style="color: #64748b;">${teacher.subject}</p>
+      `;
+      
+      document.getElementById('generatedQRCode').innerHTML = `
+        <img id="currentQRImage" src="${qrUrl}" alt="QR Code" style="max-width: 100%; height: auto; border: 2px solid #e5e7eb; border-radius: 8px;">
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">স্ক্যান করে প্রোফাইল দেখুন</p>
+      `;
+      
+      contentDiv.style.display = 'block';
+    }
+
+    function downloadSelectedQR() {
+      const qrImage = document.getElementById('currentQRImage');
+      const teacherId = document.getElementById('qrTeacherSelect').value;
+      const teacher = teacherData[teacherId];
+      
+      if (!qrImage || !teacher) return;
+      
+      const link = document.createElement('a');
+      link.href = qrImage.src;
+      link.download = `${teacher.name}_QR_Code.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      showNotification('QR কোড ডাউনলোড হয়েছে!', 'success');
+    }
+
+    function printSelectedQR() {
+      const qrImage = document.getElementById('currentQRImage');
+      const teacherId = document.getElementById('qrTeacherSelect').value;
+      const teacher = teacherData[teacherId];
+      
+      if (!qrImage || !teacher) return;
+      
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>${teacher.name} - QR Code</title>
+            <style>
+              body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+              .qr-print { border: 2px solid #000; padding: 20px; display: inline-block; margin: 20px; }
+              img { max-width: 200px; height: auto; }
+              h2 { margin: 10px 0; color: #333; }
+              p { margin: 5px 0; color: #666; }
+            </style>
+          </head>
+          <body>
+            <div class="qr-print">
+              <h2>${teacher.name}</h2>
+              <p>${teacher.subject}</p>
+              <p>শিক্ষক আইডি: ${teacher.id}</p>
+              <img src="${qrImage.src}" alt="QR Code">
+              <p>নলডাঙ্গা আইডিয়াল স্কুল</p>
+            </div>
+          </body>
+        </html>
+      `);
+      
+      printWindow.document.close();
+      printWindow.focus();
+      
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 500);
+    }
+
+    function shareSelectedProfile() {
+      const teacherId = document.getElementById('qrTeacherSelect').value;
+      if (teacherId) {
+        shareTeacherProfile(teacherId);
+      }
+    }
+
+    // Admin Panel Functions
+    function populateTeacherSelect() {
+      const select = document.getElementById('teacherSelect');
+      if (!select) return;
+      
+      select.innerHTML = '<option value="">শিক্ষক নির্বাচন করুন</option>';
+      
+      Object.keys(teacherData).forEach(teacherId => {
+        const teacher = teacherData[teacherId];
+        const option = document.createElement('option');
+        option.value = teacherId;
+        option.textContent = `${teacher.name} (${teacherId})`;
+        select.appendChild(option);
+      });
+    }
+
+    function generateProfileLinks() {
+      const teacherId = document.getElementById('teacherSelect').value;
+      const linksDiv = document.getElementById('generatedLinks');
+      
+      if (!teacherId) {
+        linksDiv.style.display = 'none';
+        return;
+      }
+      
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      
+      document.getElementById('profileLink').textContent = profileUrl;
+      
+      // Generate QR Code automatically
+      generateAutoQRCode(profileUrl);
+      
+      linksDiv.style.display = 'block';
+    }
+
+    function generateAutoQRCode(url) {
+      const qrContainer = document.getElementById('autoQRCode');
+      const qrSize = 200;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(url)}`;
+      
+      qrContainer.innerHTML = `
+        <img id="qrCodeImage" src="${qrUrl}" alt="QR Code" style="max-width: 100%; height: auto; border: 2px solid #e5e7eb; border-radius: 8px;">
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">স্ক্যান করে প্রোফাইল দেখুন</p>
+      `;
+    }
+
+    function downloadQRCode() {
+      const qrImage = document.getElementById('qrCodeImage');
+      if (!qrImage) {
+        alert('প্রথমে একজন শিক্ষক নির্বাচন করুন');
+        return;
+      }
+      
+      const teacherId = document.getElementById('teacherSelect').value;
+      const teacherName = teacherData[teacherId]?.name || 'Teacher';
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.href = qrImage.src;
+      link.download = `${teacherName}_QR_Code.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function printQRCode() {
+      const qrImage = document.getElementById('qrCodeImage');
+      if (!qrImage) {
+        alert('প্রথমে একজন শিক্ষক নির্বাচন করুন');
+        return;
+      }
+      
+      const teacherId = document.getElementById('teacherSelect').value;
+      const teacher = teacherData[teacherId];
+      
+      // Create print window
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <html>
+          <head>
+            <title>${teacher.name} - QR Code</title>
+            <style>
+              body { 
+                font-family: Arial, sans-serif; 
+                text-align: center; 
+                padding: 20px; 
+              }
+              .qr-print {
+                border: 2px solid #000;
+                padding: 20px;
+                display: inline-block;
+                margin: 20px;
+              }
+              img { 
+                max-width: 200px; 
+                height: auto; 
+              }
+              h2 { 
+                margin: 10px 0; 
+                color: #333; 
+              }
+              p { 
+                margin: 5px 0; 
+                color: #666; 
+              }
+            </style>
+          </head>
+          <body>
+            <div class="qr-print">
+              <h2>${teacher.name}</h2>
+              <p>${teacher.subject}</p>
+              <p>শিক্ষক আইডি: ${teacher.id}</p>
+              <img src="${qrImage.src}" alt="QR Code">
+              <p>নলডাঙ্গা আইডিয়াল স্কুল</p>
+            </div>
+          </body>
+        </html>
+      `);
+      
+      printWindow.document.close();
+      printWindow.focus();
+      
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 500);
+    }
+
+    function shareTeacherProfile(teacherId) {
+      if (!teacherId) {
+        alert('প্রথমে একজন শিক্ষক নির্বাচন করুন');
+        return;
+      }
+      
+      const teacher = teacherData[teacherId];
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: `${teacher.name} - নলডাঙ্গা আইডিয়াল স্কুল`,
+          text: `${teacher.name} (${teacher.subject}) এর প্রোফাইল দেখুন`,
+          url: profileUrl
+        }).catch(err => {
+          console.log('Error sharing:', err);
+          fallbackShare(profileUrl, teacher.name);
+        });
+      } else {
+        fallbackShare(profileUrl, teacher.name);
+      }
+    }
+
+    function fallbackShare(url, teacherName) {
+      navigator.clipboard.writeText(url).then(() => {
+        alert(`${teacherName} এর প্রোফাইল লিংক কপি করা হয়েছে!`);
+      }).catch(() => {
+        prompt('প্রোফাইল লিংক কপি করুন:', url);
+      });
+    }
+
+    function generateTeacherQR(teacherId) {
+      const teacher = teacherData[teacherId];
+      if (!teacher) return;
+      
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      const qrSize = 300;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(profileUrl)}`;
+      
+      // Create QR modal
+      const qrModal = document.createElement('div');
+      qrModal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+      `;
+      
+      qrModal.innerHTML = `
+        <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; max-width: 400px; width: 90%;">
+          <h3 style="color: #1e293b; margin-bottom: 1rem;">${teacher.name}</h3>
+          <p style="color: #64748b; margin-bottom: 1.5rem;">${teacher.subject}</p>
+          <img src="${qrUrl}" alt="QR Code" style="max-width: 100%; height: auto; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 1rem;">
+          <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem;">স্ক্যান করে প্রোফাইল দেখুন</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button onclick="downloadTeacherQR('${teacherId}', '${qrUrl}')" style="background: #3b82f6; color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer;">
+              <i class="ri-download-line"></i> ডাউনলোড
+            </button>
+            <button onclick="shareTeacherProfile('${teacherId}')" style="background: #10b981; color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer;">
+              <i class="ri-share-line"></i> শেয়ার
+            </button>
+            <button onclick="this.closest('.qr-modal').remove()" style="background: #ef4444; color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer;">
+              <i class="ri-close-line"></i> বন্ধ
+            </button>
+          </div>
+        </div>
+      `;
+      
+      qrModal.className = 'qr-modal';
+      document.body.appendChild(qrModal);
+      
+      // Close on background click
+      qrModal.addEventListener('click', function(e) {
+        if (e.target === qrModal) {
+          qrModal.remove();
+        }
+      });
+    }
+
+    function downloadTeacherQR(teacherId, qrUrl) {
+      const teacher = teacherData[teacherId];
+      const link = document.createElement('a');
+      link.href = qrUrl;
+      link.download = `${teacher.name}_QR_Code.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function copyLink(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('লিংক কপি করা হয়েছে!');
+      }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('লিংক কপি করা হয়েছে!');
+      });
+    }
+
+    function openQRGenerator() {
+      const teacherId = document.getElementById('teacherSelect').value;
+      if (!teacherId) {
+        alert('প্রথমে একজন শিক্ষক নির্বাচন করুন');
+        return;
+      }
+      
+      const profileUrl = document.getElementById('profileLink').textContent;
+      const qrGeneratorUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(profileUrl)}`;
+      window.open(qrGeneratorUrl, '_blank');
+    }
+
+    function addNewTeacherFromPanel(event) {
+      event.preventDefault();
+      
+      const teacherId = document.getElementById('newTeacherId').value.trim();
+      const name = document.getElementById('newTeacherName').value.trim();
+      const subject = document.getElementById('newTeacherSubject').value.trim();
+      const phone = document.getElementById('newTeacherPhone').value.trim();
+      const email = document.getElementById('newTeacherEmail').value.trim();
+      const degree = document.getElementById('newTeacherDegree').value.trim();
+      const university = document.getElementById('newTeacherUniversity').value.trim();
+      const experience = document.getElementById('newTeacherExperience').value.trim();
+      const joinDate = document.getElementById('newTeacherJoinDate').value;
+      const classTeacher = document.getElementById('newTeacherClass').value.trim() || 'নির্ধারিত নয়';
+      const extraRole = document.getElementById('newTeacherRole').value.trim() || 'নেই';
+      const club = document.getElementById('newTeacherClub').value.trim() || 'নেই';
+      const skills = document.getElementById('newTeacherSkills').value.trim() || 'সাধারণ শিক্ষাদান';
+      
+      // Check if teacher ID already exists
+      if (teacherData[teacherId]) {
+        showNotification('এই আইডি দিয়ে ইতিমধ্যে একজন শিক্ষক রয়েছেন!', 'error');
+        return;
+      }
+      
+      // Format join date
+      const formattedJoinDate = new Date(joinDate).toLocaleDateString('bn-BD', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+      
+      // Add new teacher to data
+      teacherData[teacherId] = {
+        name: name,
+        subject: subject,
+        id: teacherId,
+        joinDate: formattedJoinDate,
+        phone: phone,
+        email: email,
+        mainSubject: subject,
+        degree: degree,
+        university: university,
+        experience: experience,
+        classTeacher: classTeacher,
+        extraRole: extraRole,
+        club: club,
+        skills: skills
+      };
+      
+      // Create new teacher card in teachers-staff page
+      const teachersGrid = document.querySelector('.teachers-grid');
+      if (teachersGrid) {
+        const newTeacherCard = document.createElement('div');
+        newTeacherCard.className = 'teacher-card';
+        newTeacherCard.innerHTML = `
+          <div class="teacher-image">
+            <div class="teacher-id">${teacherId}</div>
+            <i class="ri-user-line"></i>
+          </div>
+          <div class="teacher-info">
+            <h3>${name}</h3>
+            <p class="subject">${subject}</p>
+            <p class="qualification">${degree}<br>${experience} অভিজ্ঞতা</p>
+            <div class="teacher-actions">
+              <button class="profile-btn" onclick="showTeacherProfile('${teacherId}')">
+                <i class="ri-user-line"></i>
+                প্রোফাইল দেখুন
+              </button>
+              <button class="qr-btn" onclick="generateTeacherQR('${teacherId}')" title="QR কোড">
+                <i class="ri-qr-code-line"></i>
+              </button>
+            </div>
+          </div>
+        `;
+        
+        teachersGrid.appendChild(newTeacherCard);
+      }
+      
+      // Update admin stats
+      updateAdminStats();
+      
+      // Reset form
+      document.getElementById('newAddTeacherForm').reset();
+      
+      showNotification(`${name} সফলভাবে যোগ করা হয়েছে!`, 'success');
+      
+      // Auto-generate QR code and profile link
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      
+      // Show success with profile link
+      setTimeout(() => {
+        showNotification(`প্রোফাইল লিংক তৈরি হয়েছে!`, 'info');
+      }, 1000);
+    }
+
+    function populateTeachersList() {
+      const teachersList = document.getElementById('teachersList');
+      teachersList.innerHTML = '';
+      
+      Object.keys(teacherData).forEach(teacherId => {
+        const teacher = teacherData[teacherId];
+        const baseUrl = window.location.origin + window.location.pathname;
+        const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+        
+        const teacherItem = document.createElement('div');
+        teacherItem.style.cssText = `
+          background: #f8fafc; 
+          padding: 1rem; 
+          border-radius: 8px; 
+          border-left: 4px solid #7c3aed;
+          display: grid;
+          grid-template-columns: 1fr auto auto;
+          gap: 1rem;
+          align-items: center;
+        `;
+        
+        teacherItem.innerHTML = `
+          <div>
+            <strong style="color: #1e293b;">${teacher.name}</strong>
+            <span style="color: #7c3aed; margin-left: 8px;">(${teacherId})</span>
+            <p style="color: #64748b; font-size: 0.9rem; margin: 0;">${teacher.subject}</p>
+          </div>
+          <div style="font-family: monospace; font-size: 0.8rem; color: #64748b; max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+            ${profileUrl}
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button onclick="copyTeacherLink('${teacherId}')" style="background: #10b981; color: white; padding: 4px 8px; border: none; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">
+              <i class="ri-file-copy-line"></i>
+            </button>
+            <button onclick="openTeacherQR('${teacherId}')" style="background: #3b82f6; color: white; padding: 4px 8px; border: none; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">
+              <i class="ri-qr-code-line"></i>
+            </button>
+          </div>
+        `;
+        
+        teachersList.appendChild(teacherItem);
+      });
+    }
+
+    function copyTeacherLink(teacherId) {
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      
+      navigator.clipboard.writeText(profileUrl).then(() => {
+        alert(`${teacherData[teacherId].name} এর প্রোফাইল লিংক কপি করা হয়েছে!`);
+      }).catch(() => {
+        alert(`প্রোফাইল লিংক: ${profileUrl}`);
+      });
+    }
+
+    function openTeacherQR(teacherId) {
+      const baseUrl = window.location.origin + window.location.pathname;
+      const profileUrl = `${baseUrl}?teacher=${teacherId}`;
+      const qrGeneratorUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(profileUrl)}`;
+      window.open(qrGeneratorUrl, '_blank');
+    }
+
+    // Add CSS animations for notifications
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+      
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+      
+      input:focus, select:focus, textarea:focus {
+        outline: none !important;
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      showPage('home');
+      handleDirectTeacherLink();
+      
+      // Add event listeners for admin login
+      const adminLoginForm = document.getElementById('adminLoginForm');
+      if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', adminLogin);
+      }
+      
+      // Check if user was previously logged in and trying to access admin page
+      const currentPage = window.location.hash.replace('#', '') || 'home';
+      if (currentPage === 'admin') {
+        checkAdminAccess();
+      }
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9641119ab309a48e',t:'MTc1MzMzNTQ3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
